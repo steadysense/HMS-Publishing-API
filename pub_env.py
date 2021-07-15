@@ -3,7 +3,11 @@
 How to create api client?
 https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agcapi-getstarted
 """
+import os
 
-client_id = 'your-client-id'
-client_secret = 'your-client-secret'
-package_name = 'com.sezerbozkir.pushserversample'
+from dotenv import load_dotenv
+load_dotenv()
+
+client_id = os.environ.get("CLIENT_ID")
+client_secret = os.environ.get("CLIENT_SECRET")
+package_name = os.environ.get("PACKAGE_NAME")
