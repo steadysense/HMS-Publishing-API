@@ -99,7 +99,8 @@ class HmsPublishingApi:
         if resp.status_code == HTTPStatus.OK:
             creds = resp.json()
             self.upload_url = creds['uploadUrl']
-            self.chunk_upload_url = creds['chunkUploadUrl']
+            if "chunkUploadUrl" in creds:
+                self.chunk_upload_url = creds['chunkUploadUrl']
             self.auth_code = creds['authCode']
         return self.upload_url
 
